@@ -36,8 +36,8 @@ test('initial conditions', () =>{
 
 test('Checkbox disables button on first click and enables on second click', ()=>{
   render(<App/>)
-  const checkbox = screen.getByRole('checkbox')
-  const colorButton = screen.getByRole('button')
+  const checkbox = screen.getByRole('checkbox',{name: 'Disable button'})
+  const colorButton = screen.getByRole('button', {name: 'Change to blue'})
 
   // click checkbox
   fireEvent.click(checkbox)
@@ -45,4 +45,31 @@ test('Checkbox disables button on first click and enables on second click', ()=>
 
   fireEvent.click(checkbox)
   expect(colorButton).toBeEnabled()
+})
+
+test('Disabled button has gray background and reverts to red',()=>{
+  render(<App/>)
+  const checkbox = screen.getByRole('checkbox',{name: 'Disable button'})
+  const colorButton = screen.getByRole('button', {name: 'Change to blue'})
+
+  fireEvent.click(checkbox)
+  expect(colorButton).toHaveStyle({backgroundColor:'gray'})
+
+  fireEvent.click(checkbox)
+  expect(colorButton).toHaveStyle({backgroundColor:'red'})
+})
+
+test('Disabled buttons has gray background and reverts to blue', () =>{
+  render(<App/>)
+
+  const checkbox = screen.getByRole('checkbox',{name: 'Disable button'})
+  const colorButton = screen.getByRole('button', {name: 'Change to blue'})
+
+  fireEvent.click(colorButton)
+
+  fireEvent.click(checkbox)
+  expect(colorButton).toHaveStyle({backgroundColor:'gray'})
+
+  fireEvent.click(checkbox)
+  expect(colorButton).toHaveStyle({backgroundColor:'blue'})
 })

@@ -8,9 +8,10 @@ function App() {
   const [disabled, setDisabled] = useState(false)
 
   return (
-    <div>
-      <button style ={{backgroundColor:buttonColor}} onClick={()=>setButtonColor(newButtonColor)} disabled={disabled}>Change to {newButtonColor}</button>
-      <input id='myCheck' defaultChecked={disabled} aria-checked={disabled} onChange={(e)=> setDisabled(e.target.checked)} type='checkbox'/>
+    <div style={{alignItems: 'center', justifyContent: 'center', display:'flex', marginTop: '10%'}}>
+      <button style ={{backgroundColor: disabled ? 'gray':buttonColor}} onClick={()=>setButtonColor(newButtonColor)} disabled={disabled}>Change to {newButtonColor}</button>
+      <input id='disable-button-checkbox' defaultChecked={disabled} aria-checked={disabled} onChange={(e)=> setDisabled(e.target.checked)} type='checkbox'/>
+      <label htmlFor='disable-button-checkbox'>Disable button</label>
     </div>
   );
 }
