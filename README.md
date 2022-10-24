@@ -1,15 +1,12 @@
 # It's initial project about React Testing Library
 
-## Available Scripts
-
-In the project directory, you can run:
+You can run in the project directory:
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### `npm test`
+You can see the unit test situation:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `npm test`
